@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  cassandra:
+    container_name: cassandra
+    image: cassandra:latest
+    volumes:
+      - /Users/caitlincjohnson/github/udacity/project_cassandra/cassandra/var/lib/cassandra/data
+    ports:
+      - 9042:9042
+    environment:
+      - CASSANDRA_START_RPC=true
+      - CASSANDRA_CLUSTER_NAME=MyCluster
+      - CASSANDRA_ENDPOINT_SNITCH=GossipingPropertyFileSnitch
+      - CASSANDRA_DC=datacenter
