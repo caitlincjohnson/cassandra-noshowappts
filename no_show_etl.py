@@ -10,6 +10,11 @@ logging.basicConfig(level=logging.INFO)
 
 
 def transform(df):
+    """
+    Perform transformation on the data, including the addition of a State column and conversion of bit values to boolean
+    :param df: Pandas Dataframe
+    :return: Transformed Pandas Dataframe
+    """
     # dropping unnecessary columns
     df = df.drop(labels=['Neighborhood', 'Scholarship'], axis=1)
 
@@ -35,7 +40,9 @@ def transform(df):
 
 
 def main():
-
+    """
+    Main script that performs the ETL
+    """
     logging.info('Connecting to Cassandra')
     session, cluster = etl.cassandra_connection()
 

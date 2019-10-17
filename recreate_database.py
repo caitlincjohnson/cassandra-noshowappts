@@ -6,7 +6,9 @@ logging.basicConfig(level=logging.INFO)
 
 
 def main():
-
+    """
+    Main script that tears down and rebuilds the tables within Cassandra
+    """
     cluster, session = etl.cassandra_connection()
 
     try:
